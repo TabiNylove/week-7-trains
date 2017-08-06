@@ -20,7 +20,8 @@ var database = firebase.database(); //firebase variable for storage
 //============================================================
 // CHECK FIREBASE
 database.ref().on("value", function(snapshot) {
-
+	//check if the child "name" exists in firebase anywhere
+	//if (snapshot.child('name').exists(); )
 })
 //============================================================
 // WHEN SUBMIT IS CLICKED
@@ -34,5 +35,18 @@ $("#addTrain").on("click", function() {
 	//create a <tr> and <td>s in table to put the new data and display
 	$("#table").append("<tr><td>" + name +"</td><td>" + dest + "</td><td>" + freq + "</td></tr>");
 
+	//send data to firebase
+	database.ref().push({
+       train: name
+      ,destination: dest
+      ,firstTrain: ftime
+      ,frequency: freq 
+    });
+
+	//empty the form blanks
+	name.empty();
+	dest.empty();
+	ftime.empty();
+	freq.empty();
 })
 //============================================================
