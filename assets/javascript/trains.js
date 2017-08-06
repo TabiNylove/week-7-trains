@@ -21,8 +21,18 @@ var database = firebase.database(); //firebase variable for storage
 // CHECK FIREBASE
 database.ref().on("value", function(snapshot) {
 	//check if the child "name" exists in firebase anywhere
-	//if (snapshot.child('name').exists(); )
-})
+	if (snapshot.child('train').exists()) {
+		name = snapshot.val().train;
+		dest = snapshot.val().destination;
+		ftime = snapshot.val().firstTrain;
+		freq = snapshot.val().frequency;
+
+		$("#table").append("<tr><td>" + name +"</td><td>" 
+			+ dest + "</td><td>" + freq + "</td></tr>");
+	}
+}, function(errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
 //============================================================
 // WHEN SUBMIT IS CLICKED
 $("#addTrain").on("click", function() {
