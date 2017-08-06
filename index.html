@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Train Schedule</title>
+	<link rel="stylesheet" href="assets/css/kube.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</head>
+<body>
+<!-- title -->
+<div id="heading">
+	<h1 class="title">Train Schedule</h1>
+</div>
+<!-- where content is displayed -->
+<div id="tableDiv">
+	<table id="table" class="bordered stripe w85">
+		<tr>
+			<th>Train Name</th>
+			<th>Destination</th>
+			<th class="w20">Frequency (min)</th>
+			<th class="w15">Next Arrival</th>
+			<th class="w15">Minutes Away</th>
+		</tr>
+	</table>
+</div>
+<!-- form to add a train -->
+<fieldset>
+  <legend>Add a Train</legend>
+    <div class="form-item">
+      <label>Train Name:</label>
+      <input id="name" type="text" name="train-name" class="w50">
+    </div>
+    <div class="form-item">
+      <label>Destination:</label>
+      <input id="dest" type="text" name="destination" class="w50">
+    </div>
+    <div class="form-item">
+    	<label>First Train Time (HH:mm - military time):</label>
+    	<input id="ftime" type="text" name="train-time" class="w50">
+    </div>
+    <div class="form-item">
+			<label>Frequency in Minutes:</label>
+			<input id="freq" type="text" name="frequency" class="w50">
+		</div>
+<!-- submit button -->
+	<button id="addTrain" class="button" type="submit">Add Train</button>
+</fieldset>
+
+<script
+  src="http://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/af.js"></script>
+<script src="assets/javascript/kube.js"></script>
+<script src="assets/javascript/trains.js"></script>
+</body>
+</html>
